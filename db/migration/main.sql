@@ -14,8 +14,8 @@ CREATE DATABASE :databasename
   WITH OWNER = :owner
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
-       LC_COLLATE = 'en_US.UTF-8'
-       LC_CTYPE = 'en_US.UTF-8'
+       LC_COLLATE = 'pt_PT.UTF-8'
+       LC_CTYPE = 'pt_PT.UTF-8'
        CONNECTION LIMIT = -1;
 
 -- CONNECT TO DATABASE
@@ -29,7 +29,6 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET row_security = off;
 
 -- CREATE SCHEMA DEV
 CREATE SCHEMA :schema;
