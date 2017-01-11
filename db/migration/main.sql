@@ -66,7 +66,7 @@ CREATE TABLE trees_log (
     id_tree integer NOT NULL,
     insert_date timestamp DEFAULT date_trunc('milliseconds', now()) NOT NULL,
     species VARCHAR(128) NOT NULL,
-    type VARCHAR(2) NOT NULL
+    type VARCHAR(2) NOT NULL,
 );
 ALTER TABLE trees_log OWNER TO :owner;
 
@@ -91,16 +91,16 @@ $BODY$
   DECLARE
 BEGIN
   IF (TG_OP = 'UPDATE') THEN
-        INSERT INTO trees_log (id_tree, insert_date, species, type) 
-        VALUES (NEW.id_tree, NEW.insert_date, NEW.species, substring(TG_OP,1,1));
+        INSERT INTO trees_log (id_tree, species, type) 
+        VALUES (NEW.id_tree, NEW.species, substring(TG_OP,1,1));
         RETURN NEW;
     ELSIF (TG_OP = 'DELETE') THEN
-        INSERT INTO trees_log (id_tree, insert_date, species, type) 
-        VALUES (OLD.id_tree, OLD.insert_date, OLD.species, substring(TG_OP,1,1));
+        INSERT INTO trees_log (id_tree, species, type) 
+        VALUES (OLD.id_tree, OLD.species, substring(TG_OP,1,1));
         RETURN OLD;
     ELSIF (TG_OP = 'INSERT') THEN
-        INSERT INTO trees_log (id_tree, insert_date, species, type) 
-        VALUES (NEW.id_tree, NEW.insert_date, NEW.species, substring(TG_OP,1,1));
+        INSERT INTO trees_log (id_tree, species, type) 
+        VALUES (NEW.id_tree, NEW.species, substring(TG_OP,1,1));
         RETURN NEW;
     ELSE
         RAISE WARNING ' Other action occurred: %, at %', TG_OP, now();
