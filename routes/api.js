@@ -12,6 +12,7 @@
 		dataParser.parseResponse,
 		(req, res) => {
 			console.log("Cheguei");
+			console.log(res.locals.serverData);
 			res.status(200).json(res.locals.serverData);
 		}
 	);
@@ -20,8 +21,8 @@
 		res.status(200).send(message);
 	});
 	router.post('/api/post_test', (req ,res) => {
-		console.log("Received Message From Post!");
-		console.log(req.body);
+                console.log(req.body);
+		console.log(req.body.data[0]);
 		res.status(200).send("Received Post!");
 	});
 	module.exports = router;

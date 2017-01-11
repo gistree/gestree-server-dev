@@ -40,7 +40,7 @@ SET default_with_oids = false;
 -- CREATE TABLES
 CREATE TABLE trees (
     id_tree integer NOT NULL,
-    insert_date timestamp DEFAULT now() NOT NULL,
+    insert_date timestamp DEFAULT date_trunc('milliseconds', now()) NOT NULL,
     species VARCHAR(128) NOT NULL
 );
 ALTER TABLE trees OWNER TO :owner;
@@ -64,7 +64,7 @@ ADD CONSTRAINT "PK_Trees" PRIMARY KEY (id_tree);
 CREATE TABLE trees_log (
     id_log integer NOT NULL,
     id_tree integer NOT NULL,
-    insert_date timestamp DEFAULT now() NOT NULL,
+    insert_date timestamp DEFAULT date_trunc('milliseconds', now()) NOT NULL,
     species VARCHAR(128) NOT NULL,
     type VARCHAR(2) NOT NULL
 );
