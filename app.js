@@ -11,6 +11,7 @@
 
 	let app = express();
 	
+	require('./log/logger.js')(app);
 	app.use(logger('dev'));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
