@@ -66,7 +66,7 @@ CREATE TABLE trees_log (
     id_tree integer NOT NULL,
     insert_date timestamp DEFAULT date_trunc('milliseconds', now()) NOT NULL,
     species VARCHAR(128) NOT NULL,
-    type VARCHAR(2) NOT NULL,
+    type VARCHAR(2) NOT NULL
 );
 ALTER TABLE trees_log OWNER TO :owner;
 
