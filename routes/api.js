@@ -21,7 +21,7 @@
 		res.status(200).send(message);
 	});
 	router.post('/api/post_test', (req ,res) => {
-                console.log(req.body);
+        console.log(req.body);
 		console.log(req.body.data[0]);
 		res.status(200).send("Received Post!");
 	});
