@@ -45,18 +45,6 @@ CREATE TABLE trees (
 );
 ALTER TABLE trees OWNER TO :owner;
 
-CREATE SEQUENCE trees_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-ALTER TABLE trees_id_seq OWNER TO :owner;
-ALTER SEQUENCE trees_id_seq OWNED BY trees.id_tree;
-
-ALTER TABLE ONLY trees ALTER COLUMN id_tree SET DEFAULT nextval('trees_id_seq'::regclass);
-SELECT pg_catalog.setval('trees_id_seq', 1, false);
-
 ALTER TABLE ONLY trees
 ADD CONSTRAINT "PK_Trees" PRIMARY KEY (id_tree);
 
