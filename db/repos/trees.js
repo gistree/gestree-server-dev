@@ -8,8 +8,6 @@
 		return {
 			syncServer: logs => {
 				let queries = [];
-				console.log("syncServer");
-				console.log(logs);
 				for(let i = 0, length = logs.length; i < length; i++){
 					queries.push(_queryBuilder(logs[i]));
 				}
