@@ -37,7 +37,7 @@
 			}
 		};
 		function _getLastLogs(last_timestamp){
-			return "SELECT * FROM "+ treesLogTable.table +" WHERE insert_date > '" + last_timestamp + "';"
+			return "SELECT * FROM "+ treesLogTable.table +" WHERE insert_date > '" + last_timestamp + "' ORDER BY insert_date ASC;"
 		};	
 	};
 })();
