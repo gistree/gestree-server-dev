@@ -23,15 +23,12 @@
 		function _queryBuilder(data){
 			switch(data.action) {
 				case "I":
-					console.log("INSERT");
 					return pgp.helpers.insert(data, treesTable);
 					break;
 				case "U":
-					console.log("UPDATE");
 					return pgp.helpers.update(data, treesTable) + " WHERE " + treesTable.columns[0].name+"=" + data.id_tree + ";";
 					break;
 				case "D":
-					console.log("DELETE");
 					return "DELETE FROM " + treesTable.table + " WHERE " + treesTable.columns[0].name+"=" + data.id_tree + ";";
 					break;
 				default:
