@@ -13,13 +13,13 @@
 		},
 		syncClient: (req, res, next) => {
 			let clientData = res.locals.clientData;
-			db.trees.syncClient({last_timestamp:clientData.last_timesamp})
+			db.trees.syncClient({last_timestamp:clientData.last_timestamp})
 				.then(data => {
 					res.locals.logs = data;
 					return next();
 				})
 				.catch(err => {
-					next(new error.DatabaseError("Erro no acesso à BD.", "Server::syncClient", true, 500));
+					next(new error.DatabaseError("Ocorreu um erro no acesso à Base de Dados.", "Server::syncClient", true, 500));
 				});
 		}
 	};
