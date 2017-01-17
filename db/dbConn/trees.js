@@ -13,7 +13,7 @@
 		},
 		syncClient: (req, res, next) => {
 			let clientData = res.locals.clientData;
-			db.trees.syncClient({last_timestamp:clientData.last_timestamp})
+			db.trees.syncClient({last_timestamp:clientData.last_timesamp})
 				.then(data => {
 					res.locals.logs = data;
 					return next();
