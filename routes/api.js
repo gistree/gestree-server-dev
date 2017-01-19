@@ -18,8 +18,5 @@
 		let message = "(SyncDB)" + " - " + req.params.echo_message;
 		res.status(200).send(message);
 	});
-	router.post('/api/post_test', (req ,res) => {
-		res.status(200).send("Received Post!");
-	});
 	module.exports = router;
 })();
